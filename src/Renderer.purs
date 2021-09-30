@@ -1,18 +1,19 @@
 module Hacss.Internal.Renderer (CSS, RenderError(..), printRenderError, render) where
 
 import Prelude
+
 import Data.Array (replicate)
 import Data.Either (Either(..), note)
 import Data.Foldable (foldMap)
-import Data.Traversable (traverse)
 import Data.Lens ((^.))
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Newtype (un)
 import Data.String.Common (joinWith) as S
+import Data.Traversable (traverse)
 import Data.Tuple (Tuple(..))
-import Global (encodeURIComponent)
 import Hacss.Internal.Data (AtScope(..), Combinator(..), Context(..), Declaration(..), Priority(..), Property(..), Rule, ValCtx(..), ValExpr(..), Value(..), Variable(..), ruleAtScope, ruleDeclarations, rulePriority, ruleSelector, selectorClasses, selectorContext, selectorPseudoElement)
 import Hacss.Internal.Printer as Print
+import JSURI (encodeURIComponent)
 
 type Resolve t
   = t -> Maybe String

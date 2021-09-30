@@ -1,16 +1,17 @@
 module Hacss.Internal.Data (AtScope(..), Class(..), Combinator(..), Context(..), ContextRep, Declaration(..), DeclarationRep, Priority(..), Property(..), PseudoElement(..), Rule, Selector, ValCtx(..), ValExpr(..), Value(..), Variable(..), emptyRule, emptySelector, ruleAtScope, ruleDeclarations, rulePriority, ruleSelector, selectorClasses, selectorContext, selectorPseudoElement) where
 
+import Data.Generic.Rep
 import Prelude
+
 import Data.Either (Either)
-import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Eq (genericEq)
-import Data.Generic.Rep.Ord (genericCompare)
-import Data.Generic.Rep.Show (genericShow)
+import Data.Eq.Generic (genericEq)
 import Data.Lens (Lens', (^.), _1, _2)
 import Data.Lens.Iso (Iso')
 import Data.Lens.Iso.Newtype (_Newtype)
 import Data.Maybe (Maybe(Nothing))
 import Data.Newtype (class Newtype)
+import Data.Ord.Generic (genericCompare)
+import Data.Show.Generic (genericShow)
 import Data.Tuple (Tuple(..))
 
 newtype AtScope
